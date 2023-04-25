@@ -53,7 +53,7 @@
         </visual>
         <gravity>1</gravity>
         <velocity_decay/>
-      </link>  
+      </link>
       <link name='/imu_link'>
         <pose>0 0 0 0 0 0</pose>
         <inertial>
@@ -123,12 +123,12 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://borinot/meshes/propeller_cw.dae</uri>
+              <uri>model://iris/meshes/iris_prop_cw.dae</uri>
             </mesh>
           </geometry>
           <material>
             <script>
-              <name>Gazebo/Blue</name>
+              <name>Gazebo/DarkGrey</name>
               <uri>file://media/materials/scripts/gazebo.material</uri>
             </script>
           </material>
@@ -188,7 +188,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://borinot/meshes/propeller_ccw.dae</uri>
+              <uri>model://iris/meshes/iris_prop_ccw.dae</uri>
             </mesh>
           </geometry>
           <material>
@@ -253,7 +253,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://borinot/meshes/propeller_cw.dae</uri>
+              <uri>model://iris/meshes/iris_prop_cw.dae</uri>
             </mesh>
           </geometry>
           <material>
@@ -318,7 +318,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://borinot/meshes/propeller_ccw.dae</uri>
+              <uri>model://iris/meshes/iris_prop_ccw.dae</uri>
             </mesh>
           </geometry>
           <material>
@@ -383,12 +383,12 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://borinot/meshes/propeller_ccw.dae</uri>
+              <uri>model://iris/meshes/iris_prop_ccw.dae</uri>
             </mesh>
           </geometry>
           <material>
             <script>
-              <name>Gazebo/DarkGrey</name>
+              <name>Gazebo/Blue</name>
               <uri>file://media/materials/scripts/gazebo.material</uri>
             </script>
           </material>
@@ -448,7 +448,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://borinot/meshes/propeller_cw.dae</uri>
+              <uri>model://iris/meshes/iris_prop_cw.dae</uri>
             </mesh>
           </geometry>
           <material>
@@ -481,7 +481,7 @@
         <robotNamespace></robotNamespace>
         <linkName>base_link</linkName>
         <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
-      </plugin>  
+      </plugin>
       <plugin name='right_motor_model' filename='libgazebo_motor_model.so'>
         <robotNamespace></robotNamespace>
         <jointName>rotor_0_joint</jointName>
@@ -491,11 +491,11 @@
         <timeConstantUp>0.025</timeConstantUp>
         <timeConstantDown>0.025</timeConstantDown>
         <!-- tmotor f90 kv1300 datasheet, 6S GF 7042 -->
-        <!-- 
+        <!--
             max rpm: 21350 = 2236rad/s
             max thrust: 2110g = 20.6991N
             cf computed with 60% thrust values (1196g at 15400rpm)
-            cf = 
+            cf =
         -->
         <maxRotVelocity>2236</maxRotVelocity>
         <motorConstant>4.511e-06</motorConstant>
@@ -514,16 +514,16 @@
         <robotNamespace></robotNamespace>
         <jointName>rotor_1_joint</jointName>
         <linkName>rotor_1</linkName>
-        <turningDirection>cw</turningDirection>
+        <turningDirection>ccw</turningDirection>
         <!-- time constant identified by sergi -->
         <timeConstantUp>0.025</timeConstantUp>
         <timeConstantDown>0.025</timeConstantDown>
         <!-- tmotor f90 kv1300 datasheet, 6S GF 7042 -->
-        <!-- 
+        <!--
             max rpm: 21350 = 2236rad/s
             max thrust: 2110g = 20.6991N
             cf computed with 60% thrust values (1196g at 15400rpm)
-            cf = 
+            cf =
         -->
         <maxRotVelocity>2236</maxRotVelocity>
         <motorConstant>4.511e-06</motorConstant>
@@ -534,7 +534,7 @@
         <!-- TODO: don't know what this constant does -->
         <rotorDragCoefficient>0.000175</rotorDragCoefficient>
         <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
-        <motorSpeedPubTopic>/motor_speed/0</motorSpeedPubTopic>
+        <motorSpeedPubTopic>/motor_speed/1</motorSpeedPubTopic>
         <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       </plugin>
 
@@ -547,18 +547,18 @@
         <timeConstantUp>0.025</timeConstantUp>
         <timeConstantDown>0.025</timeConstantDown>
         <!-- tmotor f90 kv1300 datasheet, 6S GF 7042 -->
-        <!-- 
+        <!--
             max rpm: 21350 = 2236rad/s
             max thrust: 2110g = 20.6991N
             cf computed with 60% thrust values (1196g at 15400rpm)
-            cf = 
+            cf =
         -->
         <maxRotVelocity>2236</maxRotVelocity>
         <motorConstant>4.511e-06</motorConstant>
         <!-- TODO: moment constant to be identified -->
         <momentConstant>0.06</momentConstant>
         <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
-        <motorNumber>0</motorNumber>
+        <motorNumber>2</motorNumber>
         <!-- TODO: don't know what this constant does -->
         <rotorDragCoefficient>0.000175</rotorDragCoefficient>
         <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
@@ -570,23 +570,23 @@
         <robotNamespace></robotNamespace>
         <jointName>rotor_3_joint</jointName>
         <linkName>rotor_3</linkName>
-        <turningDirection>cw</turningDirection>
+        <turningDirection>ccw</turningDirection>
         <!-- time constant identified by sergi -->
         <timeConstantUp>0.025</timeConstantUp>
         <timeConstantDown>0.025</timeConstantDown>
         <!-- tmotor f90 kv1300 datasheet, 6S GF 7042 -->
-        <!-- 
+        <!--
             max rpm: 21350 = 2236rad/s
             max thrust: 2110g = 20.6991N
             cf computed with 60% thrust values (1196g at 15400rpm)
-            cf = 
+            cf =
         -->
         <maxRotVelocity>2236</maxRotVelocity>
         <motorConstant>4.511e-06</motorConstant>
         <!-- TODO: moment constant to be identified -->
         <momentConstant>0.06</momentConstant>
         <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
-        <motorNumber>0</motorNumber>
+        <motorNumber>3</motorNumber>
         <!-- TODO: don't know what this constant does -->
         <rotorDragCoefficient>0.000175</rotorDragCoefficient>
         <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
@@ -598,23 +598,23 @@
         <robotNamespace></robotNamespace>
         <jointName>rotor_4_joint</jointName>
         <linkName>rotor_4</linkName>
-        <turningDirection>cw</turningDirection>
+        <turningDirection>ccw</turningDirection>
         <!-- time constant identified by sergi -->
         <timeConstantUp>0.025</timeConstantUp>
         <timeConstantDown>0.025</timeConstantDown>
         <!-- tmotor f90 kv1300 datasheet, 6S GF 7042 -->
-        <!-- 
+        <!--
             max rpm: 21350 = 2236rad/s
             max thrust: 2110g = 20.6991N
             cf computed with 60% thrust values (1196g at 15400rpm)
-            cf = 
+            cf =
         -->
         <maxRotVelocity>2236</maxRotVelocity>
         <motorConstant>4.511e-06</motorConstant>
         <!-- TODO: moment constant to be identified -->
         <momentConstant>0.06</momentConstant>
         <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
-        <motorNumber>0</motorNumber>
+        <motorNumber>4</motorNumber>
         <!-- TODO: don't know what this constant does -->
         <rotorDragCoefficient>0.000175</rotorDragCoefficient>
         <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
@@ -631,18 +631,18 @@
         <timeConstantUp>0.025</timeConstantUp>
         <timeConstantDown>0.025</timeConstantDown>
         <!-- tmotor f90 kv1300 datasheet, 6S GF 7042 -->
-        <!-- 
+        <!--
             max rpm: 21350 = 2236rad/s
             max thrust: 2110g = 20.6991N
             cf computed with 60% thrust values (1196g at 15400rpm)
-            cf = 
+            cf =
         -->
         <maxRotVelocity>2236</maxRotVelocity>
         <motorConstant>4.511e-06</motorConstant>
         <!-- TODO: moment constant to be identified -->
         <momentConstant>0.06</momentConstant>
         <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
-        <motorNumber>0</motorNumber>
+        <motorNumber>5</motorNumber>
         <!-- TODO: don't know what this constant does -->
         <rotorDragCoefficient>0.000175</rotorDragCoefficient>
         <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
@@ -675,25 +675,27 @@
         <baroTopic>/baro</baroTopic>
       </plugin>
       <plugin name='mavlink_interface' filename='libgazebo_mavlink_interface.so'>
-        <robotNamespace></robotNamespace>
-        <imuSubTopic>/imu</imuSubTopic>
-        <magSubTopic>/mag</magSubTopic>
-        <baroSubTopic>/baro</baroSubTopic>
-        <mavlink_addr>INADDR_ANY</mavlink_addr>
-        <mavlink_tcp_port>{{ mavlink_tcp_port }}</mavlink_tcp_port>
-        <mavlink_udp_port>{{ mavlink_udp_port }}</mavlink_udp_port>
-        <serialEnabled>{{ serial_enabled }}</serialEnabled>
-        <serialDevice>{{ serial_device }}</serialDevice>
-        <baudRate>{{ serial_baudrate }}</baudRate>
-        <qgc_addr>INADDR_ANY</qgc_addr>
-        <qgc_udp_port>14550</qgc_udp_port>
-        <sdk_addr>INADDR_ANY</sdk_addr>
-        <sdk_udp_port>14540</sdk_udp_port>
-        <hil_mode>{{ hil_mode }}</hil_mode>
-        <hil_state_level>false</hil_state_level>
-        <enable_lockstep>true</enable_lockstep>
-        <use_tcp>true</use_tcp>
-        <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
+      <robotNamespace/>
+      <imuSubTopic>/imu</imuSubTopic>
+      <magSubTopic>/mag</magSubTopic>
+      <baroSubTopic>/baro</baroSubTopic>
+      <mavlink_addr>INADDR_ANY</mavlink_addr>
+      <mavlink_tcp_port>4560</mavlink_tcp_port>
+      <mavlink_udp_port>14560</mavlink_udp_port>
+      <serialEnabled>0</serialEnabled>
+      <serialDevice>/dev/ttyACM0</serialDevice>
+      <baudRate>921600</baudRate>
+      <qgc_addr>INADDR_ANY</qgc_addr>
+      <qgc_udp_port>14550</qgc_udp_port>
+      <sdk_addr>INADDR_ANY</sdk_addr>
+      <sdk_udp_port>14540</sdk_udp_port>
+      <hil_mode>0</hil_mode>
+      <hil_state_level>0</hil_state_level>
+      <send_vision_estimation>0</send_vision_estimation>
+      <send_odometry>1</send_odometry>
+      <enable_lockstep>1</enable_lockstep>
+      <use_tcp>1</use_tcp>
+      <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
         <control_channels>
             <channel name='rotor1'>
               <input_index>0</input_index>
@@ -729,65 +731,19 @@
             </channel>
             <channel name='rotor5'>
               <input_index>4</input_index>
-              <input_offset>1</input_offset>
-              <input_scaling>324.6</input_scaling>
+              <input_offset>0</input_offset>
+              <input_scaling>1000</input_scaling>
               <zero_position_disarmed>0</zero_position_disarmed>
-              <zero_position_armed>0</zero_position_armed>
+              <zero_position_armed>100</zero_position_armed>
               <joint_control_type>velocity</joint_control_type>
-              <joint_control_pid>
-                <p>0.1</p>
-                <i>0</i>
-                <d>0</d>
-                <iMax>0.0</iMax>
-                <iMin>0.0</iMin>
-                <cmdMax>2</cmdMax>
-                <cmdMin>-2</cmdMin>
-              </joint_control_pid>
-              <joint_name>zephyr_delta_wing::propeller_joint</joint_name>
             </channel>
             <channel name='rotor6'>
               <input_index>5</input_index>
               <input_offset>0</input_offset>
-              <input_scaling>0.524</input_scaling>
+              <input_scaling>1000</input_scaling>
               <zero_position_disarmed>0</zero_position_disarmed>
-              <zero_position_armed>0</zero_position_armed>
-              <joint_control_type>position</joint_control_type>
-              <joint_name>zephyr_delta_wing::flap_left_joint</joint_name>
-              <joint_control_pid>
-                <p>10.0</p>
-                <i>0</i>
-                <d>0</d>
-                <iMax>0</iMax>
-                <iMin>0</iMin>
-                <cmdMax>20</cmdMax>
-                <cmdMin>-20</cmdMin>
-              </joint_control_pid>
-            </channel>
-            <channel name='rotor7'>
-              <input_index>6</input_index>
-              <input_offset>0</input_offset>
-              <input_scaling>0.524</input_scaling>
-              <zero_position_disarmed>0</zero_position_disarmed>
-              <zero_position_armed>0</zero_position_armed>
-              <joint_control_type>position</joint_control_type>
-              <joint_name>zephyr_delta_wing::flap_right_joint</joint_name>
-              <joint_control_pid>
-                <p>10.0</p>
-                <i>0</i>
-                <d>0</d>
-                <iMax>0</iMax>
-                <iMin>0</iMin>
-                <cmdMax>20</cmdMax>
-                <cmdMin>-20</cmdMin>
-              </joint_control_pid>
-            </channel>
-            <channel name='rotor8'>
-              <input_index>7</input_index>
-              <input_offset>0</input_offset>
-              <input_scaling>0.524</input_scaling>
-              <zero_position_disarmed>0</zero_position_disarmed>
-              <zero_position_armed>0</zero_position_armed>
-              <joint_control_type>position</joint_control_type>
+              <zero_position_armed>100</zero_position_armed>
+              <joint_control_type>velocity</joint_control_type>
             </channel>
           </control_channels>
       </plugin>
@@ -807,4 +763,3 @@
       </plugin>
     </model>
   </sdf>
-  
